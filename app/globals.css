@@ -1,6 +1,11 @@
 @import "tailwindcss";
 
 :root {
+  /* Your Hatsune Miku inspired palette */
+  --color-leek: #73973A;
+  --color-olive: #A3C586;
+  --color-OlAcnt-15: #0f410026;
+  --color-GreyB: #ffffff66;
   --background: #ffffff;
   --foreground: #171717;
 }
@@ -18,6 +23,20 @@
     --foreground: #ededed;
   }
 }
+
+@layer utilities {
+  .blur-progressive-bottom {
+    /* 1. Apply the maximum uniform blur you want */
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    
+    /* 2. Mask it using the 60 -> 70 values from your design */
+    /* Black means "show the blur", transparent means "hide the blur" */
+    mask-image: linear-gradient(to bottom, black 60%, transparent 70%);
+    -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 70%);
+  }
+}
+
 
 body {
   background: var(--background);
