@@ -1,10 +1,17 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { Exo_2 } from 'next/font/google';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+});
+
+const exo2 = Exo_2({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-exo2', // This creates the CSS variable we pass to Tailwind
 });
 
 const geistMono = Geist_Mono({

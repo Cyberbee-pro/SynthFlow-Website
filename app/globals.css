@@ -1,20 +1,9 @@
 @import "tailwindcss";
 
+/* 1. Base Variables */
 :root {
-  /* Your Hatsune Miku inspired palette */
-  --color-leek: #73973A;
-  --color-olive: #A3C586;
-  --color-OlAcnt-15: #0f410026;
-  --color-GreyB: #ffffff66;
   --background: #ffffff;
   --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -24,22 +13,38 @@
   }
 }
 
-@layer utilities {
-  .blur-progressive-bottom {
-    /* 1. Apply the maximum uniform blur you want */
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    
-    /* 2. Mask it using the 60 -> 70 values from your design */
-    /* Black means "show the blur", transparent means "hide the blur" */
-    mask-image: linear-gradient(to bottom, black 60%, transparent 70%);
-    -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 70%);
-  }
+/* 2. Theme Extensions */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  
+  /* Hatsune Miku Palette */
+  --color-leek: #73973A;
+  --color-olive: #A3C586;
+  --color-olacnt-15: #0f410026;
+  --color-grey-b: #ffffff66;
+
+  /* Custom Shapes */
+  --radius-synth: 50px; 
+
+  /* Typography Integration */
+  /* Overriding the default sans font with our Next.js Exo 2 variable */
+  --font-sans: var(--font-exo2), ui-sans-serif, system-ui, sans-serif;
 }
 
+/* 3. Custom Utilities */
+@utility blur-progressive-bottom {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  mask-image: linear-gradient(to bottom, black 60%, transparent 70%);
+  -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 70%);
+}
 
+/* 4. Base Styles */
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  /* The font-family is now handled by Tailwind's default font-sans class applied implicitly, 
+     or you can explicitly enforce it here: */
+  font-family: var(--font-sans);
 }
