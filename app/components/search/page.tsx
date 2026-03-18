@@ -16,6 +16,7 @@ export default function Search(){
             height={17}/>
             <h1 className="text text-black p-4 font-bold">Search with freedom</h1>
         <div>
+            
             <Image
             src={BrowseIcon}
             alt="Browseing"
