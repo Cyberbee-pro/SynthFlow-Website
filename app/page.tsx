@@ -10,14 +10,16 @@ import Signup from "./components/Buttons/Signup/page"
 export default function Home() {
   return (
     <>
-          <ICON/>
+    <div className="flex flex-row p-3 justify-between">
+      <ICON/>
     <div className="flex p-6 gap-2 items-center justify-center">
       <HomeBut/>
       <Search/>
     </div>
-    <div>
+    <div className="flex flex-row items-center">
       <Login/>
       <Signup/>
+    </div>
     </div>
     </>
   );
